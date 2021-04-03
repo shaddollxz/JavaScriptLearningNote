@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head> </head>
+	<body style="background-color: black">
+		<noscript>
+			<p>you can`t runing javascript</p>
+		</noscript>
+		<script>
+			//LET
+			/*在全局中的使用*/
+			var a = 1;
+			console.log(a); //1
+			console.log(window.a); //1
+			let b = 2;
+			console.log(b); //2
+			console.log(window.b); //undefined
+
+			(function biaoshifutest() {
+				console.log(a); //1
+				console.log(window.a); //1
+				console.log(b); //2
+				console.log(window.b); //undefined
+				/*let不能作为window的对象 但是作为全局变量仍然能在函数中调用*/
+
+				/*作用范围*/
+				if (true) {
+					var Var = "var";
+				}
+				if (true) {
+					let Let = "let";
+					console.log(Let); //可以输出
+				}
+				console.log(Var); //可以输出
+				//console.log(Let); //不能输出
+
+				/*能否重复*/
+				/*报错*/
+				// var someting = "someting";
+				// let someting = "other";
+				// console.log(someting);
+				var something = "var something";
+				if (true) {
+					//console.log(something); //报错 let定义的变量不能提升
+					let something = "let others";
+					console.log(something); //let others
+				}
+				console.log(something); //var something
+
+				if (true) {
+					console.log(something); //var something
+				}
+				alert("can run es6");
+			})();
+
+			/*能否提升*/
+			// (function () {
+			// 	console.log(rise); //报错 let定义的变量不能提升
+			// 	let rise = "is rise?";
+			// })();
+
+			//CONST
+			(function () {
+				const a = 1;
+				//a = 10; //报错 不能修改const定义的值
+				console.log(a);
+			})();
+		</script>
+	</body>
+</html>

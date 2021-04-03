@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+		<title>Document</title>
+
+		<script>
+			// //1.函数声明，不会执行。
+			// function a() {
+			// 	alert("函数a");
+			// }
+
+			// //2.函数表达式，立即执行该函数，必须使用一个变量接收返回值，否则报错。
+			// var res = (function b() {
+			// 	alert("函数b");
+			// })();
+
+			//3.函数表达式，立即执行该函数，不必须使用变量接收。
+			//均为自调函数
+			(function c() {
+				alert("函数c");
+			})();
+
+			!(function () {
+				alert("函数d");
+			})();
+
+			(function () {
+				alert("函数e");
+			})();
+
+			// function f(num) {
+			// 	if (num == 1) return 1;
+			// 	else return num * f(num - 1);
+			// }
+
+			// var c = f(5);
+			// alert(c);
+
+			// alert(f(5));
+
+			// alert(
+			// 	(function a() {
+			// 		return 1;
+			// 	})()
+			// );
+		</script>
+	</head>
+
+	<body></body>
+</html>

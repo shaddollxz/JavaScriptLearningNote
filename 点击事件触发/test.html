@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>js弹出新窗口</title>
+		<link rel="stylesheet" type="text/css" href="test.css" />
+	</head>
+
+	<body>
+		<!-- 直接设置点击事件 -->
+		<a href="http://www.baidu.com" onclick="opennew(this);return false;">
+			go to baidu to search！
+		</a>
+
+		<li id="oneli">
+			<ul>
+				<button
+					onclick="openwind('http://www.baidu.com');return false;"
+				>
+					新建浏览器
+				</button>
+			</ul>
+			<ul>
+				<!-- js中设置点击事件 -->
+				<button class="clicktest" href="http://www.baidu.com">
+					新建浏览器
+				</button>
+			</ul>
+			<ul>
+				<button class="showpic" href="../img/1.jpg">pic</button>
+			</ul>
+			<ul>
+				<a href="../img/1.jpg">pic</a>
+			</ul>
+		</li>
+		<canvas class="showpiccanvas"></canvas>
+
+		<!-- 先将函数库加载再加载实际运行函数 -->
+		<script src="QuickCode.js"></script>
+		<script src="test.js"></script>
+	</body>
+</html>
