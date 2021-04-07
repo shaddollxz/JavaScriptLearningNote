@@ -57,3 +57,29 @@ function say_next() {
 async function say_next_async() {
 	console.log(await say_neo());
 }
+
+async function* stream() {
+	yield await new Promise((resove) => {
+		for (let i = 1; i < 5; i++) {
+			setTimeout(resove, 1000, i);
+			console.log("ha");
+		}
+	});
+}
+let a = stream();
+a.next().then(console.log); //resove只能解决一个值 所以只会打印出1
+
+//每秒生成一个promise
+async function* stream() {
+	for (let i = 1; i < 5; i++) {
+		yield await new Promise((resove) => {
+			setTimeout(resove, 1000, i);
+		});
+	}
+}
+// 1 2 3 4
+let b = stream();
+b.next().then(console.log);
+b.next().then(console.log);
+b.next().then(console.log);
+b.next().then(console.log);
