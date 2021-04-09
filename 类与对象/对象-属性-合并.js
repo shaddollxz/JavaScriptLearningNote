@@ -23,12 +23,20 @@ for (const i in obj_test_1) {
 }
 
 //该方法会将目标属性的属性以对象的形式读出
-console.log("非defineProperty定义的属性", Object.getOwnPropertyDescriptor(obj_test_1, "key1"));
-console.log("defineProperty定义的属性", Object.getOwnPropertyDescriptor(obj_test_1, "key3"));
+console.log(
+	"非defineProperty定义的属性",
+	Object.getOwnPropertyDescriptor(obj_test_1, "key1")
+);
+console.log(
+	"defineProperty定义的属性",
+	Object.getOwnPropertyDescriptor(obj_test_1, "key3")
+);
 
 /**
  * 对象的访问器
  * 访问器即get,set
+ * get是调用时触发，返回函数返回的值 必须要有返回
+ * set是给对应属性赋值时触发，修改对象内的内容 可以没有返回
  * 访问器仍然具有上面的属性（没有writable）
  * 所以访问器用defineProperty定义的话无法用for-in遍历出来 不能删除 也不能修改，重定义
  */
@@ -105,7 +113,12 @@ for (const i in obj_test_2_new) {
 let obj1, obj2, obj3;
 obj1 = { obj1key: "1st" };
 obj2 = { obj2key: "2nd" };
-obj3 = Object.assign(obj1, obj2, { otherobjkey: "haha" }, { otherobjkey: "ha" });
+obj3 = Object.assign(
+	obj1,
+	obj2,
+	{ otherobjkey: "haha" },
+	{ otherobjkey: "ha" }
+);
 
 console.log(obj3);
 console.log(obj1);

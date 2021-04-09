@@ -2,8 +2,10 @@ class Father {
 	//构造函数
 	constructor() {
 		this.name = "father";
+		//私有变量
 		let age = 22;
 
+		//特权方法
 		this.sayage_constructor = () => {
 			console.log(age);
 		};
@@ -17,7 +19,7 @@ class Father {
 	}
 	//原型上无法读取构造函数中的私有变量
 	//因为不在一个作用域内
-	//但是class内不能定义数据，所以只能在class外定义 具体看下面的例子
+	//但是class内不能定义数据，所以只能在class外定义 具体看最下面的例子
 	sayage_proto() {
 		console.log(age);
 	}
@@ -42,12 +44,13 @@ let son_new = new Son();
 
 //设置一个作用域 使原型能访问上一作用域的私有变量
 //当然可以不用匿名函数自调形成一个作用域 直接定义也行
-//但是这样age就使全局中的变量了 就显得没意义
+//但是这样age就成全局中的变量了 就显得没意义
 (function () {
 	//一个私有变量 实质上是个局部变量
 	let age = "33 in private";
-	//NEW_father前没有声明 如果有let声明就使局部变量了
-	//是全局变量 放在window对象中
+	//NEW_father前没有声明 如果有let声明就是局部变量了
+	//这里用了js里的特性：没有声明就使用的变量默认放在window里
+	//所以NEW_father是全局变量 放在window对象中 而New_father是局部变量 会被垃圾清理
 	NEW_father = class New_father {
 		//构造函数
 		constructor() {

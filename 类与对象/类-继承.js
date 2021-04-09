@@ -1,7 +1,9 @@
 /**
  * extends 继承
  * 即可继承class 也可继承构造函数
- * super 引用原型 只能在子类中的构造函数和静态方法中使用
+ * 类似寄生式组合继承
+ * 将父类的原型放到子类的原型上 在子类的原型上新增新的方法
+ * super 引用父类构造函数或者静态方法 只能在子类中的构造函数和静态方法中使用
  */
 
 class Father {
@@ -18,14 +20,20 @@ class Father {
 }
 class Child_1st extends Father {
 	constructor() {
-		super(); //在子类里使用constructor必须先调用super()
+		super(); //在子类里使用constructor必须先调用super() 相当于把Father的constructor拿过来
 		this.name = "child 1"; //this指向super()实例化出的Father对象
+		this.sex = "man";
+	}
+
+	//加入新原型方法
+	saychild() {
+		console.log(`${this.name}`);
 	}
 	/**
 	 * 调用Father的sayname() 重新在内存中创建了一个静态方法
-	 * Father,sayname === Child_1st.sayname //false
+	 * Father.sayname === Child_1st.sayname //false
 	 * 如果不进行这个操作，Child_1st仍然能调用sayname
-	 * 此时 Father,sayname === Child_1st.sayname //true
+	 * 此时 Father.sayname === Child_1st.sayname //true
 	 */
 	// static sayname() {
 	// 	super.sayname();
@@ -59,7 +67,7 @@ class Class_base {
 class Class_next extends Class_base {
 	sayname() {}
 }
-let class_next = new Class_next(); //this class must be define name
+let class_next = new Class_next(); //this class must be define sayname()
 
 //可以使用函数调用实现类的多次继承
 //定义一个基础类
@@ -108,7 +116,17 @@ function mix_extrnd(baseclass, ...mixers) {
 	//a是上一次调用函数时返回的值，b是调用时指向的值
 	//第一次调用时a指向reduce的第二个值 b指向数组的第0个值
 }
-class Mixer extends mix_extrnd(Base_class, First_extend, Second_extend, Third_extend) {}
-class Mixer_2 extends mix_extrnd(Base_class, Third_extend, Second_extend, First_extend) {}
+class Mixer extends mix_extrnd(
+	Base_class,
+	First_extend,
+	Second_extend,
+	Third_extend
+) {}
+class Mixer_2 extends mix_extrnd(
+	Base_class,
+	Third_extend,
+	Second_extend,
+	First_extend
+) {}
 let new_class_bymix = new Mixer(); //__proto__.__proto__ //saythird
 let new_class_bymix_2 = new Mixer_2(); //__proto__.__proto__ //sayfirst
