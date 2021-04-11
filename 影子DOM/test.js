@@ -10,7 +10,7 @@ let beshadow_p = document.querySelector("#beshadow");
 //let shadow_div = maindiv.attachShadow({ mode: "open" });
 let shadow_p = beshadow_p.attachShadow({ mode: "open" }); //一般都设为open
 console.log(beshadow_p.shadowRoot); //如果mode是closed 则为null
-console.log(shadow_p == beshadow_p.shadowRoot); //true
+console.log(shadow_p == beshadow_p.shadowRoot); //true 可以直接用ele.shadowRoot。innerHTML来为其中添加元素
 
 //向影子DOM和原来DOM中分别添加新元素
 shadow_p.appendChild(document.importNode(maindiv, true)); //显示

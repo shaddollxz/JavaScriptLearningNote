@@ -2,12 +2,12 @@
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 /*从右往左累加*/
-// let sum1 = arr.reduce((first, second, index, array) => {
-// 	console.log(`first is :${first}`);
-// 	console.log(`second is :${second}`);
-// 	console.log(`index is :${index}`); //second的下标
-// 	return first + second;
-// });
+let sum1 = arr.reduce((first, second, index, array) => {
+	console.log(`first is :${first}`);
+	console.log(`second is :${second}`);
+	console.log(`index is :${index}`); //second的下标
+	return first + second;
+});
 
 /*从左往右累加*/
 // let sum = arr.reduceRight((first, second, index, array) => {

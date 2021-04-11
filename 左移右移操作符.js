@@ -4,3 +4,5 @@ document.write((a << 1).toString(2) + "<br>");
 document.write((-a << 1).toString(2) + "<br>");
 document.write((a >> 1).toString(2) + "<br>");
 document.write((-a >> 1).toString(2) + "<br>");
+
+(-((1 << 31) + 1)).toString(2);

@@ -35,7 +35,10 @@ function NumberOf1(n) {
 	return va;
 }
 let numberof1 = 99;
-console.log(numberof1.toString("2"), `${numberof1}转为二进制含有` + NumberOf1(`${numberof1}`) + "个1");
+console.log(
+	numberof1.toString("2"),
+	`${numberof1}转为二进制含有` + NumberOf1(`${numberof1}`) + "个1"
+);
 
 //找出数组中只出现了一次的数
 //两个相同的数^后得0，所有数进行^后化简得到唯一一个不是偶数个的数
