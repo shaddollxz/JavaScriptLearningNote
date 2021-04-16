@@ -17,6 +17,8 @@ console.log(string.split("h", 2)); //用指定字符分割字符串 第二个参
 console.log(string.endsWith("6")); //判断是否由该字符结尾
 console.log(string.startsWith("1")); //开头
 console.log(string.repeat(3)); //将该字符复制n次
+console.log(string.padStart(20, "012")); //字符串如果长度不足20 在前面补上第二个参数直到足够
+console.log(string.padEnd(20, "012"));
 
 console.log(string.toUpperCase()); //英文转大写
 console.log(string.toLocaleUpperCase()); //也是转大写 但是是使用本机的ASCII码转换 适用于跨地区

@@ -1,0 +1,31 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.menu {
+	width: 100px;
+	border: 1px solid #ccc;
+	position: absolute;
+	box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
+	display: none;
+}
+.menu li {
+	list-style: none;
+	width: 100%;
+}
+.menu li span {
+	display: inline-block;
+	text-decoration: none;
+	color: #555;
+	width: 100%;
+	padding: 10px 0;
+	text-align: center;
+	cursor: pointer;
+}
+.menu li:first-of-type {
+	border-radius: 5px 5px 0 0;
+}
+.menu li span:hover {
+	background: #eee;
+	color: #cc1a1a;
+}
