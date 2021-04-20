@@ -27,7 +27,10 @@ class MyDiv extends HTMLDivElement {
 }
 customElements.define("my-div", MyDiv, { extends: "div" });
 
+//添加属性is
 document.body.innerHTML += "<div is='my-div'>this is my div</div>";
+//在创建时使用is
+let mydiv = document.createElement("div", { is: "my-div" });
 
 /* 通过自定义标签的构造函数可以添加一个模板
 配合影子DOM食用更佳 */
