@@ -1,7 +1,7 @@
 class Div_RemoveSelf extends HTMLDivElement {
 	constructor() {
 		super();
-		this.outToRemove();
+		this.autoRemove();
 	}
 
 	//监视是否离开屏幕
@@ -15,16 +15,14 @@ class Div_RemoveSelf extends HTMLDivElement {
 		});
 	}
 
-	async outToRemove() {
-		//this.style.display = "block"; //将它设置为块级元素
+	async autoRemove() {
 		await this.isOutScream(this).then((result) => {
 			document.body.removeChild(result);
 		});
 	}
 
 	//不是人看的写法
-	/* async outToRemove() {
-		this.style.display = "block";
+	/* async autoRemove() {
 		await (async function (obj) {
 			return new Promise((resolve) => {
 				setInterval(() => {
@@ -33,8 +31,8 @@ class Div_RemoveSelf extends HTMLDivElement {
 					}
 				}, 5000);
 			});
-		})(this).then((x) => {
-			document.body.removeChild(x);
+		})(this).then((value) => {
+			document.body.removeChild(value);
 		});
 	} */
 }
@@ -48,6 +46,8 @@ block2.innerText = "test2";
 
 document.body.appendChild(block);
 document.body.appendChild(block2);
+
+let ele = document.querySelector("div");
 function outScream(ele) {
 	ele.style.position = "absolute";
 	ele.style.left = "-500px";
